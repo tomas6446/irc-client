@@ -1,6 +1,7 @@
 package org.example.irc;
 
 import io.github.cdimascio.dotenv.Dotenv;
+import org.example.irc.connection.IRCClient;
 
 /**
  * @author Tomas Kozakas

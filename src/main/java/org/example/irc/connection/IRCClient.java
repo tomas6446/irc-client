@@ -1,4 +1,4 @@
-package org.example.irc;
+package org.example.irc.connection;
 
 import org.example.irc.handler.InputHandler;
 import org.example.irc.connection.Connection;

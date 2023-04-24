@@ -15,16 +15,16 @@ This client features basic IRC functionality and a number guessing game that cli
 ```bash
     git clone https://github.com/tomas6446/irc-client.git
 ```
-2. Rename .env-template to .env and insert you credentials:
+2. Change to the project directory:
+```bash
+    cd irc-client
+```
+3. Rename .env-template to .env and insert you credentials:
 ```bash
     IRC_NICKNAME=YOUR_IRC_NICKNAME
     IRC_USERNAME=YOUR_IRC_USERNAME
     IRC_PASSWORD=YOUR_IRC_PASSWORD
     IRC_EMAIL=YOUR_IRC_EMAIL
-```
-3. Change to the project directory:
-```bash
-    cd irc-client
 ```
 4. Run the script:
 ```bash

@@ -9,8 +9,8 @@ public class Application {
     public static void main(String[] args) {
         Dotenv dotenv = Dotenv.load();
 
-        //String server = "irc.freenode.net";
-        String server = "irc.rizon.net";
+        String server = "irc.freenode.net";
+        //String server = "irc.rizon.net";
         int port = 6667;
 
         String nick = dotenv.get("IRC_NICKNAME");

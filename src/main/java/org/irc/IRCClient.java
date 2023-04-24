@@ -3,6 +3,7 @@ package org.irc;
 import org.irc.connection.Connection;
 import org.irc.handler.InputHandler;
 import org.irc.handler.OutputHandler;
+import org.irc.model.Client;
 import org.irc.sender.IRCCommandSender;
 
 import java.io.IOException;
@@ -20,20 +21,24 @@ public class IRCClient {
     public void connect(String nick, String user, String password, String email) {
         try {
             connectionHandler.connect(nick, user);
+            Client client = new Client(nick, user);
 
             IRCCommandSender ircCommandSender = new IRCCommandSender(connectionHandler.getWriter());
 
             ircCommandSender.register(password, email);
             ircCommandSender.identify(nick, user);
-             ircCommandSender.connect(nick, user);
+            ircCommandSender.connect(nick, user);
 
-            InputHandler inputHandler = new InputHandler(ircCommandSender);
-            OutputHandler outputHandler = new OutputHandler(ircCommandSender, connectionHandler.getReader());
+            InputHandler inputHandler = new InputHandler(client, ircCommandSender);
+            OutputHandler outputHandler = new OutputHandler(client, ircCommandSender, connectionHandler.getReader());
 
-            outputHandler.startListening();
-            inputHandler.handleConsoleInput();
+            outputHandler.handleOutput();
+            inputHandler.handleInput();
+
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
 }

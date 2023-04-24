@@ -14,7 +14,7 @@ target/
 .idea
 /target
 .xml
-.idea
+.env
 
 ### Eclipse ###
 .apt_generated

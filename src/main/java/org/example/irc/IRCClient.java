@@ -1,10 +1,10 @@
-package org.irc;
+package org.example.irc;
 
-import org.irc.connection.Connection;
-import org.irc.handler.InputHandler;
-import org.irc.handler.OutputHandler;
-import org.irc.model.Client;
-import org.irc.sender.IRCCommandSender;
+import org.example.irc.handler.InputHandler;
+import org.example.irc.connection.Connection;
+import org.example.irc.handler.OutputHandler;
+import org.example.irc.model.Client;
+import org.example.irc.sender.IRCCommandSender;
 
 import java.io.IOException;
 

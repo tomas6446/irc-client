@@ -1,4 +1,4 @@
-package org.irc.connection;
+package org.example.irc.connection;
 
 import java.io.*;
 import java.net.Socket;

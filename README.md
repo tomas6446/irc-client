@@ -1,2 +1,28 @@
-# irc-client
-irc-client
+# IRC Client
+
+A simple, easy-to-use IRC client for connecting to and interacting with IRC servers. 
+This client features basic IRC functionality and a number guessing game that clients can play together in a shared channel.
+
+## Features
+
+- Send and receive messages in channels
+- Play a number guessing game with other clients in the channel
+- Display formatted output for better readability
+
+### Installation
+
+1. Clone the repository:
+```bash
+    git clone https://github.com/tomas6446/irc-client.git
+```
+2. Change to the project directory:
+```bash
+    cd irc-client
+```
+3. Run the script:
+```bash
+    sudo bash run.sh <server> <port>
+```
+
+
+

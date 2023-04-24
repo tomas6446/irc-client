@@ -1,7 +1,6 @@
-package org.irc.handler;
+package org.example.irc.handler;
 
-import org.irc.model.Client;
-import org.irc.sender.IRCCommandSender;
+import org.example.irc.sender.IRCCommandSender;
 
 import java.io.BufferedReader;
 import java.io.IOException;

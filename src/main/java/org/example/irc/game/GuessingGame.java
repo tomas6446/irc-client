@@ -1,7 +1,7 @@
-package org.irc.game;
+package org.example.irc.game;
 
-import org.irc.model.Client;
-import org.irc.sender.IRCCommandSender;
+import org.example.irc.model.Client;
+import org.example.irc.sender.IRCCommandSender;
 
 import java.io.IOException;
 

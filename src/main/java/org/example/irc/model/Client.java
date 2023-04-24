@@ -1,4 +1,4 @@
-package org.irc.model;
+package org.example.irc.model;
 
 /**
  * @author Tomas Kozakas

@@ -1,4 +1,4 @@
-package org.irc.sender;
+package org.example.irc.sender;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

@@ -19,8 +19,6 @@ public class Application {
         String email = dotenv.get("IRC_EMAIL");
 
         IRCClient ircClient = new IRCClient(server, port);
-
         ircClient.connect(nick, user, password, email);
-        System.out.println("Connected to " + server + ":" + port);
     }
 }

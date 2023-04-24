@@ -19,7 +19,7 @@ public class Connection {
         this.port = port;
     }
 
-    public void connect(String nick, String user) throws IOException {
+    public void connect() throws IOException {
         socket = new Socket(server, port);
         reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
         writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8));

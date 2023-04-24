@@ -26,7 +26,7 @@ public class GuessingGame {
                             "The goal of the game is to guess a randomly generated number within a specified range.%n%n" +
                             "Here are the rules:%n" +
                             "- To start a game, type \"startgame\". The game will generate a random number between %d and %d.%n" +
-                            "- To make a guess, type \"/guess <number>\". For example: \"/guess 50\" will guess the number 50.%n" +
+                            "- To make a guess, type \"guess <number>\". For example: \"guess 50\" will guess the number 50.%n" +
                             "- If your guess is too high, the bot will respond with \"LOWER\".%n" +
                             "- If your guess is too low, the bot will respond with \"HIGHER\".%n" +
                             "- If your guess is correct, the bot will respond with \"YOU WON!\" and start a new game.%n%n" +
@@ -79,7 +79,7 @@ public class GuessingGame {
 
     private boolean isGuessCommandValid(String[] parts) {
         if (parts.length <= 1) {
-            System.out.println("Usage: guess <number>\n");
+            System.out.println("Usage: guess <number>");
             return false;
         }
 
@@ -99,7 +99,7 @@ public class GuessingGame {
         client.setWinCount(client.getWinCount() + 1);
         client.randomiseNumber();
 
-        String message = String.format("%s%nWon!%nWin count: %d, guess count: %d",
+        String message = String.format("%s Won! (Win count: %d, guess count: %d)",
                 client.getNick(), client.getWinCount(), client.getGuessCount());
 
         ircCommandSender.sendMessageToChannel("#guessinggamechannel", message);

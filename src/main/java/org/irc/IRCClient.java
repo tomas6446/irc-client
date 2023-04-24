@@ -20,7 +20,7 @@ public class IRCClient {
 
     public void connect(String nick, String user, String password, String email) {
         try {
-            connectionHandler.connect(nick, user);
+            connectionHandler.connect();
             Client client = new Client(nick, user);
 
             IRCCommandSender ircCommandSender = new IRCCommandSender(connectionHandler.getWriter());
@@ -30,12 +30,10 @@ public class IRCClient {
             ircCommandSender.connect(nick, user);
 
             InputHandler inputHandler = new InputHandler(client, ircCommandSender);
-            OutputHandler outputHandler = new OutputHandler(client, ircCommandSender, connectionHandler.getReader());
+            OutputHandler outputHandler = new OutputHandler(ircCommandSender, connectionHandler.getReader());
 
             outputHandler.handleOutput();
             inputHandler.handleInput();
-
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

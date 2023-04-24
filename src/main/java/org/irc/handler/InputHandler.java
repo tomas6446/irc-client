@@ -49,7 +49,7 @@ public class InputHandler {
         if (client.getChannel() != null) {
             if (parts.length > 1) {
                 ircCommandSender.sendMessageToChannel(client.getChannel(), parts[1]);
-                System.out.println(client.getNick() + ": " + parts[1]);
+                System.out.println(client.getNick() + " " + client.getChannel() + ": " + parts[1]);
             } else {
                 System.out.println("Usage: msg <message>");
             }

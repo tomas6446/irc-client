@@ -22,18 +22,7 @@ public class GuessingGame {
             client.setChannel("#guessinggamechannel");
             ircCommandSender.joinChannel("#guessinggamechannel");
 
-            System.out.printf("Welcome to the Number Guessing Game!%n" +
-                            "The goal of the game is to guess a randomly generated number within a specified range.%n%n" +
-                            "Here are the rules:%n" +
-                            "- To start a game, type \"startgame\". The game will generate a random number between %d and %d.%n" +
-                            "- To make a guess, type \"guess <number>\". For example: \"guess 50\" will guess the number 50.%n" +
-                            "- If your guess is too high, the bot will respond with \"LOWER\".%n" +
-                            "- If your guess is too low, the bot will respond with \"HIGHER\".%n" +
-                            "- If your guess is correct, the bot will respond with \"YOU WON!\" and start a new game.%n%n" +
-                            "- You can message the player by typing \"msg <message>\".%n" +
-                            "- You can quit the game at any time by typing \"quitgame\".%n" +
-                            "Good luck and have fun!%n%n",
-                    0, 100);
+            System.out.printf("Welcome to the Number Guessing Game!%n" + "The goal of the game is to guess a randomly generated number within a specified range.%n%n" + "Here are the rules:%n" + "- To start a game, type \"startgame\". The game will generate a random number between %d and %d.%n" + "- To make a guess, type \"guess <number>\". For example: \"guess 50\" will guess the number 50.%n" + "- If your guess is too high, the bot will respond with \"LOWER\".%n" + "- If your guess is too low, the bot will respond with \"HIGHER\".%n" + "- If your guess is correct, the bot will respond with \"YOU WON!\" and start a new game.%n%n" + "- You can message the player by typing \"msg <message>\".%n" + "- You can quit the game at any time by typing \"quitgame\".%n" + "Good luck and have fun!%n%n", 0, 100);
             System.out.println("The random number is: " + client.getRandNum());
         } else {
             System.out.println("Usage: startgame");
@@ -58,8 +47,15 @@ public class GuessingGame {
             return;
         }
 
+        if (client.getTries() == 1) {
+            System.out.println("No tries left, the number randomised.");
+            client.setTries(10);
+            client.randomiseNumber();
+        }
+
         int guess = Integer.parseInt(parts[1]);
         client.setGuessCount(client.getGuessCount() + 1);
+        client.setTries(client.getTries() - 1);
 
         if (isGuessCorrect(guess)) {
             handleCorrectGuess();
@@ -70,8 +66,7 @@ public class GuessingGame {
 
     private boolean isClientInGameChannel() {
         if (!client.getChannel().equals("#guessinggamechannel")) {
-            System.out.println("The client must join a #guessinggamechannel\n" +
-                    "Use join <channel> to participate in the game");
+            System.out.println("The client must join a #guessinggamechannel\n" + "Use join <channel> to participate in the game");
             return false;
         }
         return true;
@@ -98,15 +93,15 @@ public class GuessingGame {
     private void handleCorrectGuess() throws IOException {
         client.setWinCount(client.getWinCount() + 1);
         client.randomiseNumber();
+        client.setTries(10);
 
-        String message = String.format("%s Won! (Win count: %d, guess count: %d)",
-                client.getNick(), client.getWinCount(), client.getGuessCount());
+        String message = String.format("%s Won! (Win count: %d, guess count: %d)", client.getNick(), client.getWinCount(), client.getGuessCount());
 
         ircCommandSender.sendMessageToChannel("#guessinggamechannel", message);
         System.out.println(message);
     }
 
     private void printHigherOrLower(int guess) {
-        System.out.println((guess < client.getRandNum()) ? "HIGHER" : "LOWER");
+        System.out.println("#" + client.getTries() + ": " + ((guess < client.getRandNum()) ? "HIGHER" : "LOWER"));
     }
 }

@@ -10,6 +10,7 @@ public class Client {
     private int randNum;
     private int winCount = 0;
     private int guessCount = 0;
+    private int tries = 10;
 
 
     public Client(String nick, String user) {
@@ -52,5 +53,13 @@ public class Client {
 
     public void setGuessCount(int guessCount) {
         this.guessCount = guessCount;
+    }
+
+    public int getTries() {
+        return tries;
+    }
+
+    public void setTries(int tries) {
+        this.tries = tries;
     }
 }

@@ -1,6 +1,6 @@
 # IRC Client
 
-A simple, easy-to-use IRC client for connecting to and interacting with IRC servers. 
+IRC client for connecting to and interacting with IRC servers. 
 This client features basic IRC functionality and a number guessing game that clients can play together in a shared channel.
 
 ## Features
